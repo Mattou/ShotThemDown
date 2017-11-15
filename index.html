@@ -19,6 +19,11 @@
                 text-align: center;
         }
 
+        #player2 {
+            margin: auto;
+            text-align: right;
+        }
+
         .life {
             color:white;
         }
@@ -33,8 +38,13 @@
         <strong>Joueur 1</strong>
         <span class="life">3</span> vies
     </div>
+    <div id="player2">
+        <strong>Joueur 2</strong>
+        <span class="life">1</span> vies
+    </div>
 </body>
 
+<script src="game/ennemy.js"></script>
 <script src="js/three.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/OrbitControls.js"></script>
@@ -62,6 +72,7 @@
         render();
         update();
         player1.displayInfo();
+        player2.displayInfo();
         shoot();
         collisions();
     }
