@@ -5,7 +5,7 @@ var Ennemy = function(name, color, position, direction) {
     this.life = 1;
     this.bullets = new Array();
     this.direction = direction;
-    this.speed = 5;
+    this.speed = 1;
 
     this.material = new THREE.MeshLambertMaterial({
         color: color,
@@ -39,10 +39,10 @@ Ennemy.prototype.accelerate = function (distance) {
 
 Ennemy.prototype.dead = function () {
     this.graphic.position.z = this.graphic.position.z-0.1;
+    this.life = 0;
+    this.graphic.visible = false;
     //Nettoyage de la div container
-    $("#container").html("");
     jQuery('#'+this.name+' >.life').text("Tu es mort !");
-    init();
 }
 
 Ennemy.prototype.decelerate = function (distance) {
@@ -75,6 +75,7 @@ Ennemy.prototype.move = function () {
         this.graphic.position.z
     );
     this.graphic.position = moveTo;
+    this.position = moveTo;
 
     // light1.position.z = this.graphic.position.z + 500;
 };

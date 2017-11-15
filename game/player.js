@@ -6,6 +6,7 @@ var Player = function(name, color, position, direction) {
     this.bullets = new Array();
     this.direction = direction;
     this.speed = 0;
+    this.last_fall = new THREE.Vector2(0,0);
 
     this.material = new THREE.MeshLambertMaterial({
         color: color,

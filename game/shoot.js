@@ -50,6 +50,11 @@ function bullet_collision()
             scene.remove(player1.bullets[i]);
             player1.bullets.splice(i, 1);
             i--;
+        } else if (Math.round(player1.bullets[i].position.x) > player2.position.x - 12
+            && Math.round(player1.bullets[i].position.x) < player2.position.x + 12
+            && Math.round(player1.bullets[i].position.y) > player2.position.y - 12
+            && Math.round(player1.bullets[i].position.y) < player2.position.y + 12) {
+            player2.dead();
         }
     }
 
@@ -115,7 +120,10 @@ function player_falling()
             && (y > tileY) 
             && (y < mtileY))
         {
-            player1.dead();
+            if (tileX != player1.last_fall.x && tileY != player1.last_fall.y) {
+                player1.last_fall = new THREE.Vector2(tileX, tileY);
+            player1.life > 1 ? player1.life-- : player1.dead();
+            }
         }
     }
 
