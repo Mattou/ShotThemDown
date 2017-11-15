@@ -15,13 +15,11 @@ function random_shoot() {
     scene.add(bullet);
     bullet.position.x = player2.graphic.position.x + 7.5 * Math.cos(player2.direction);
     bullet.position.y = player2.graphic.position.y + 7.5 * Math.sin(player2.direction);
-    if (player1.y < player2.y) {
-        bullet.angle = player2.direction + Math.random();
-        console.log("a");
+    if (player1.position.y < player2.position.y) {
+        bullet.angle = player2.direction - Math.random();
     }
     else {
-        bullet.angle = player2.direction - Math.random();
-        console.log("b");
+        bullet.angle = player2.direction + Math.random();
     }
     player2.bullets.push(bullet);
     bulletTime2 = clock.getElapsedTime();
