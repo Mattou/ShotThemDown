@@ -15,8 +15,8 @@ A video game with three.js
 
 **TO DO**
 
-- [ ] : As a user, I want to turn right/left to be able to change my direction (right/left)
-- [ ] : As a user, I want a better light to be able to see all the map
+- [X] : As a user, I want to turn right/left to be able to change my direction (right/left)
+- [X] : As a user, I want a better light to be able to see all the map
 - [ ] : As a user, I want to be stop when I go into the left wall
 - [ ] : As a user, I want to have a ground when I start the game
 - [ ] : As a user, I want to see ennemy

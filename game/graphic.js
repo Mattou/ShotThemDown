@@ -28,7 +28,7 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
 
-    light1 = new Light("sun", 0xffffff, "0,0,340");
+    light1 = new Light("sun", 0xffffff);
     scene.add(light1);
 }
 
@@ -64,13 +64,13 @@ function Ground(color, size_x, size_y, nb_tile)
     }
 }
 
-function Light(name, color, position)
+function Light(name, color)
 {
-    pointLight = new THREE.PointLight(color, 50, 350);
+    pointLight = new THREE.PointLight(color, 1000, 1000);
 
-    pointLight.position.x = position.split(',')[0];
-    pointLight.position.y = position.split(',')[1];
-    pointLight.position.z = position.split(',')[2];
+    pointLight.position.x = '0';
+    pointLight.position.y = '0';
+    pointLight.position.z = '340';
 
     return pointLight;
 }
