@@ -20,7 +20,11 @@ A video game with three.js
 - [X] : As a user, I want to be stop when I go into the left wall
 - [X] : As a user, I want to have a ground when I start the game
 - [X] : As a user, I want to see ennemy
-- [ ] : As a user, I want to destroy ennemy when I shot them
+- [X] : As a user, I want to destroy ennemy when I shot them
 - [X] : As a ennemy, I want to move on one axe
 - [ ] : As a user, I want to decrease my life when I am touch by an ennemy
-- [ ] : As a user, I want to decrease my life when I fall 
+- [X] : As a user, I want to decrease my life when I fall 
+
+** MOREOVER **
+
+- [X] : As a user, i can see a beautiful set of colors on the ground
