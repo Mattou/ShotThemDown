@@ -27,4 +27,6 @@ A video game with three.js
 
 ** MOREOVER **
 
-- [X] : As a user, i can see a beautiful set of colors on the ground
+- [X] : As a user, I want to see a beautiful set of colors on the ground
+- [X] : As a user, I want to play with a shooter ennemy that knows if he should shoot on his top or bottom
+- [X] : As a user, I want to see the amount of lifes of the ennemy, and mine (the mandatoy was to decrease it, not to show how much it lefts)
