@@ -15,8 +15,6 @@ function random_shoot() {
     scene.add(bullet);
     bullet.position.x = player2.graphic.position.x + 7.5 * Math.cos(player2.direction);
     bullet.position.y = player2.graphic.position.y + 7.5 * Math.sin(player2.direction);
- //  player2.direction += Math.PI / 2 * clock.getDelta() * 2;
-   //player2.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), Math.PI / 2 * clock.getDelta() * 2);
     bullet.angle = player2.direction + Math.PI / 2 * Math.round(Math.random());
     player2.bullets.push(bullet);
     bulletTime2 = clock.getElapsedTime();
@@ -82,6 +80,23 @@ function bullet_collision()
         }
     }
 
+    for (var i = 0; i < player2.bullets.length; i++)
+    {
+        if (Math.abs(player2.bullets[i].position.x) >= WIDTH / 2 ||
+            Math.abs(player2.bullets[i].position.y) >= HEIGHT / 2)
+        {
+            scene.remove(player2.bullets[i]);
+            player2.bullets.splice(i, 1);
+            i--;
+        } else if (Math.round(player2.bullets[i].position.x) > player1.position.x - 6
+            && Math.round(player2.bullets[i].position.x) < player1.position.x + 6
+            && Math.round(player2.bullets[i].position.y) > player1.position.y - 6
+            && Math.round(player2.bullets[i].position.y) < player1.position.y + 6) {
+            console.log("OK. Lifes:");
+            console.log(player1.life);
+            player1.life > 1 ? player1.life-- : player1.dead();
+        }
+    }
 }
 
 function player_collision()

@@ -74,6 +74,7 @@ Player.prototype.move = function () {
     );
 
     this.graphic.position = moveTo;
+    this.position = moveTo;
     if (this.speed > 0) {
         this.speed = this.speed - 0.04;
     }
