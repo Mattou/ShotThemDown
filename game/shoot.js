@@ -1,10 +1,34 @@
 var bulletTime1 = 0;
+var bulletTime2 = 0;
 
 var bullet_player1_material = new THREE.MeshLambertMaterial(
 {
     color: 0x00ff00, 
     transparent: false
 });
+
+function random_shoot() {
+    if (bulletTime2 + 1 < clock.getElapsedTime()) {
+    bullet = new THREE.Mesh(
+        new THREE.SphereGeometry(2),
+        bullet_player1_material);
+    scene.add(bullet);
+    bullet.position.x = player2.graphic.position.x + 7.5 * Math.cos(player2.direction);
+    bullet.position.y = player2.graphic.position.y + 7.5 * Math.sin(player2.direction);
+ //  player2.direction += Math.PI / 2 * clock.getDelta() * 2;
+   //player2.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), Math.PI / 2 * clock.getDelta() * 2);
+    bullet.angle = player2.direction + 5;
+    player2.bullets.push(bullet);
+    bulletTime2 = clock.getElapsedTime();
+    }
+    var moveDistance = 5;
+
+    for (var i = 0; i < player2.bullets.length; i++)
+    {
+        player2.bullets[i].position.x += moveDistance * Math.cos(player2.bullets[i].angle);
+        player2.bullets[i].position.y += moveDistance * Math.sin(player2.bullets[i].angle);
+    }
+}
 
 function shoot()
 {
