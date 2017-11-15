@@ -17,7 +17,7 @@ function random_shoot() {
     bullet.position.y = player2.graphic.position.y + 7.5 * Math.sin(player2.direction);
  //  player2.direction += Math.PI / 2 * clock.getDelta() * 2;
    //player2.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), Math.PI / 2 * clock.getDelta() * 2);
-    bullet.angle = player2.direction + 5;
+    bullet.angle = player2.direction + Math.PI / 2 * Math.round(Math.random());
     player2.bullets.push(bullet);
     bulletTime2 = clock.getElapsedTime();
     }
