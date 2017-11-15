@@ -5,7 +5,7 @@ var Ennemy = function(name, color, position, direction) {
     this.life = 1;
     this.bullets = new Array();
     this.direction = direction;
-    this.speed = 0;
+    this.speed = 5;
 
     this.material = new THREE.MeshLambertMaterial({
         color: color,
@@ -23,7 +23,7 @@ var Ennemy = function(name, color, position, direction) {
 
     this.graphic = new THREE.Mesh(sphere, this.material);
     this.graphic.position.x = 50;
-    this.graphic.position.z = 50;
+    this.graphic.position.y = 50;
     this.graphic.position.z = 6;
     this.graphic.rotateOnAxis(new THREE.Vector3(0,0,1), this.direction);
 };
@@ -74,16 +74,7 @@ Ennemy.prototype.move = function () {
         this.speed * Math.sin(this.direction) + this.graphic.position.y,
         this.graphic.position.z
     );
-
     this.graphic.position = moveTo;
-    if (this.speed > 0) {
-        this.speed = this.speed - 0.04;
-    }
-    else if (this.speed < 0) {
-        this.speed = this.speed + 0.04
-    }
 
-    light1.position.x = this.graphic.position.x;
-    light1.position.y = this.graphic.position.y;
     // light1.position.z = this.graphic.position.z + 500;
 };

@@ -58,17 +58,37 @@ function bullet_collision()
 function player_collision()
 {
     //collision between player and walls
-    var x = player1.graphic.position.x + WIDTH / 2;
-    var y = player1.graphic.position.y + HEIGHT / 2;
+    var x_p1 = player1.graphic.position.x + WIDTH / 2;
+    var y_p1 = player1.graphic.position.y + HEIGHT / 2;
 
-    if ( x < 0 )
-        player1.graphic.position.x -= x;
-    if ( x > WIDTH )
-        player1.graphic.position.x -= x - WIDTH;
-    if ( y < 0 )
-        player1.graphic.position.y -= y;
-    if ( y > HEIGHT )
-        player1.graphic.position.y -= y - HEIGHT;
+    var x_p2 = player2.graphic.position.x + WIDTH / 2;
+    var y_p2 = player2.graphic.position.y + HEIGHT / 2;
+
+    if ( x_p1 < 0 )
+        player1.graphic.position.x -= x_p1;
+    if ( x_p1 > WIDTH )
+        player1.graphic.position.x -= x_p1 - WIDTH;
+    if ( y_p1 < 0 )
+        player1.graphic.position.y -= y_p1;
+    if ( y_p1 > HEIGHT )
+        player1.graphic.position.y -= y_p1 - HEIGHT;
+
+    if ( x_p2 < 0 ) {
+        player2.graphic.position.x -= x_p2;
+        player2.speed = -player2.speed;
+    }
+    if ( x_p2 > WIDTH ) {
+        player2.graphic.position.x -= x_p2 - WIDTH;
+        player2.speed = -player2.speed;
+    }
+    if ( y_p2 < 0 ) {
+        player2.graphic.position.y -= y_p2;
+        player2.speed = -player2.speed;
+    }
+    if ( y_p2 > HEIGHT ) {
+        player2.graphic.position.y -= y_p2 - HEIGHT;
+        player2.speed = -player2.speed;
+    }
 
 }
 
